@@ -1,0 +1,53 @@
+%% "Makarena" (c) by Ignacio Slater M.
+%% "Makarena" is licensed under a
+%% Creative Commons Attribution 4.0 International License.
+%% You should have received a copy of the license along with this
+%% work. If not, see <https://creativecommons.org/licenses/by/4.0/>.
+\documentclass{article}
+  \usepackage{import} % This will make our life easier
+  \import{.preamble}{Packages}
+  \import{.preamble}{Definitions}
+  \import{.preamble}{config}
+
+  \setup { 
+    title = {
+      A Heuristic Proof on the Non-Deterministic Behaviour of the \textit{Little Room}'s Printer
+    },
+    subtitle = { Thesis Proposal for the degree of Ph.D in Printer Sciences },
+    author = {
+      \textbf{DankMasterBlader} \\
+      \textit{Institute of Printer Sciences} \\
+      Letter Paper University of Applied Sciences
+    },
+    advisors = {
+      \textbf{Alf} \\
+      \textit{?¿??} \\
+      University of \texttt{[BLANK]}. Ph.D  \\
+      {\small\textit{Thesis Advisor}},
+      \textbf{Juan Carlos Bodoque} \\
+      \textit{Thirty-One Minutes} \\
+      {\small\textit{Reviewer}}
+    },
+    logo = {logos/e8923992b90db715a9529395415acb85.png},
+    location = {Brooklyn, Japan},
+    date = \today
+  }
+
+\begin{document}
+  \begin{titlepage}
+    \centering
+    % Some vertical space before the title (note the *, it's needed to add space at the beginning 
+    % of the page).
+    \vspace*{2cm}
+    \titleblock [2cm]
+    \inputlogo [3.5cm]
+    \vspace{1cm}  % Some vertical space after the logo.
+    \authorblock
+    \vfill  % Fills the page so the location and date are at the bottom.
+    \location \\
+    \dateblock \\
+    \footnotesize { \texttt{v0.0.2204211838} }
+  \end{titlepage}
+
+  \Blinddocument
+\end{document}

@@ -1,0 +1,32 @@
+\tl_const:Nn \l__figures_modulename_tl { ravenhill/latex/figures }
+
+\NewDocumentCommand { \includefigureht } { o m } {
+  \group_begin:
+  \IfNoValueTF {#1} { } {
+    \prop_clear_new:N \g_rvnlatex_tmp_prop
+    \keys_set:nn { \l__figures_modulename_tl } { #1 }
+    \setvfig { centering } { \l_rvnlatex_centering_bool } 
+    \setvfig { width } { \l_rvnlatex_width_dim }
+  }
+  \begin{figure}[ht!]
+    \keys_if_exist:nnTF { \l__figures_modulename_tl } { centering } { 
+      \bool_if:nTF { \getvfig { centering } } { \centering } {} 
+    } {
+      \centering
+    }
+    \includegraphics [
+      \keys_if_exist:nnT { \l__figures_modulename_tl } { width } { width = \getvfig { width }, }  
+    ] {#2}
+  \end{figure}
+  \group_end:
+}
+
+% | Generic getter for the document variables.
+\NewExpandableDocumentCommand { \getvfig } { m } { \prop_item:Nn \g_rvnlatex_doc_prop {#1} }
+\NewDocumentCommand { \setvfig } { m m } { \prop_gput:NnV \g_rvnlatex_doc_prop {#1} #2 }
+
+% | Dictionary containing the metadata of the figure.
+\keys_define:nn { \l__figures_modulename_tl } {
+  centering .bool_set:N = \l_rvnlatex_centering_bool,
+  width .dim_set:N = \l_rvnlatex_width_dim,
+}

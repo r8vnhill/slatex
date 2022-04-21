@@ -1,0 +1,106 @@
+%% "Makarena" (c) by Ignacio Slater M.
+%% "Makarena" is licensed under a
+%% Creative Commons Attribution 4.0 International License.
+%% You should have received a copy of the license along with this
+%% work. If not, see <https://creativecommons.org/licenses/by/4.0/>.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE UTILITIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% region : USER COMMANDS ---------------------------------------------------------------------------
+
+% | Renders the title and subtitle of the document.
+% | Arguments:
+% |   #1: (Optional) Vertical space after the title block.
+\NewDocumentCommand { \titleblock } { o } {
+    {\huge                                                        % font_size = huge
+      \textbf{\getvmeta { title }}                                % bold(title)
+      \keys_if_exist:nnT { ravenhill/latex/meta } { subtitle } {  % if (subtitle exists) {
+        \\[1ex]                                                   %   add vertical space
+        \textit{\getvmeta { subtitle }}                           %   italic(subtitle)
+      } { }                                                       % } else { }
+    }
+  \IfNoValueTF {#1} { } { \vspace{#1} }                           % if (#1 exists) { add vertical space }
+}
+
+% | Renders the logo of the document.
+\NewDocumentCommand { \inputlogo } { o } {
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=#1]{ \getvmeta { logo } }
+  \end{figure}
+}
+
+% | Renders the authors of the document.
+% | The authors are arranged in accord to the number of authors.
+\NewDocumentCommand { \authorblock } { } {
+  \latexito_authorblock:x { \getvmeta { author } }
+  \keys_if_exist:nnT { ravenhill/latex/meta } { advisors } {          % if (advisors exists):
+    \latexito_authorblock:x { \getvmeta { advisors } }                %   create_block(metadata[advisors], 1)
+  }                                                                   
+}
+
+\NewDocumentCommand { \location } { } {
+  \getvmeta { location }
+}
+
+\NewDocumentCommand { \dateblock } { } {
+  \getvmeta { date }
+}
+
+% endregion ----------------------------------------------------------------------------------------
+
+\str_new:N \l__createblock_first_str                                  % var first: str
+\str_new:N \l__createblock_second_str                                 % var second: str 
+
+\clist_new:N \l__authblock_authcopy_clist                             % var cl: clist
+\int_new:N \l__authblock_count_int                                    % var i: int
+
+% | Creates an author block.
+% |
+% | The arrangement is given by the following algorithm:
+% |   if (number of authors is 1) {
+% |     Renders the author centered.
+% |   }
+% |   else if (number of authors is even) {
+% |     Renders the next two authors centered in two columns.
+% |     Run the algorithm recursively with the remaining authors.
+% |   }
+% |
+% | Arguments:
+% |   #1: the list of authors.
+\cs_new_protected:Npn \latexito_authorblock:x #1 {
+  \clist_set:Nx \l__authblock_authcopy_clist { #1 }                   % cl = metadata[author]
+  \int_set:Nn \l__authblock_count_int {                               % n = cl.size
+    \clist_count:N \l__authblock_authcopy_clist                       
+  }
+  \latexito_createblock:nn { \l__authblock_authcopy_clist } {         % create_block(cl, n)
+    \l__authblock_count_int 
+  }
+}
+
+% | Creates a block to arrange a list in columns.
+% |
+% | Arguments:
+% |   #1: the list.
+% |   #2: the size of the list.
+\cs_new_protected:Npn \latexito_createblock:nn #1 #2 {
+  \begin{center}
+    \int_compare:nNnTF { 0 } = {#2} { } {                             % if (n == 0) { } 
+      \int_compare:nNnTF { 1 } = {#2} {                               % else if (n == 1):
+        #1                                                            %   Renders the author centered.
+      } {                                                             % else: 
+        \clist_pop:NN #1 \l__createblock_first_str                    %   first = cl.pop()
+        \clist_pop:NN #1 \l__createblock_second_str                   %   second = cl.pop()
+        \begin{minipage}{0.5\textwidth}                               % Render the next author 
+          \centering\l__createblock_first_str                         % centered to the left
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}                               % Render the next author
+          \centering\l__createblock_second_str                        % centered to the right
+        \end{minipage}
+        \vspace{0.5cm}                                                % add vertical space
+        \latexito_createblock:nn {#1} { #2 - 2 }                      % create_block(cl, n - 2)
+      }
+    }
+  \end{center}
+}

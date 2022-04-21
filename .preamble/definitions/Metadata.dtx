@@ -1,0 +1,45 @@
+%% "Makarena" (c) by Ignacio Slater M.
+%% "Makarena" is licensed under a
+%% Creative Commons Attribution 4.0 International License.
+%% You should have received a copy of the license along with this
+%% work. If not, see <https://creativecommons.org/licenses/by/4.0/>.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT'S METADATA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% | Generic getter for the document variables.
+\NewExpandableDocumentCommand { \getvmeta } { m } { \prop_item:Nn \g_rvnlatex_doc_prop {#1} }
+\NewDocumentCommand { \setvmeta } { m m } { \prop_gput:NnV \g_rvnlatex_doc_prop {#1} #2 }
+
+% region : TEMPLATE METADATA -----------------------------------------------------------------------
+% | Dictionary containing the metadata of the document.
+\keys_define:nn { ravenhill/latex/meta } {
+  title .tl_set:N = \l_rvnlatex_title_str ,
+  logo .tl_set:N = \l_rvnlatex_logo_str ,
+  date .tl_set:N = \l_rvnlatex_date_tl ,
+  city .tl_set:N = \l_rvnlatex_city_str ,
+  country .tl_set:N = \l_rvnlatex_country_str ,
+  subtitle .tl_set:N = \l_rvnlatex_subtitle_tl ,
+  author .clist_set:N = \l_rvnlatex_author_clist ,
+  advisors .clist_set:N = \l_rvnlatex_advisors_clist ,
+  location .tl_set:N = \l_rvnlatex_location_tl ,
+  date .tl_set:N = \l_rvnlatex_date_tl ,
+}
+
+% | Creates variables for the document's metadata.
+\NewDocumentCommand { \setup } { m } { 
+  \group_begin:
+  \prop_new:c { g_rvnlatex_doc_prop }
+  \keys_set:nn { ravenhill/latex/meta } { #1 }
+  \setvmeta { title } { \l_rvnlatex_title_str }
+  \setvmeta { logo } { \l_rvnlatex_logo_str }
+  \setvmeta { date } { \l_rvnlatex_date_tl }
+  \setvmeta { city } { \l_rvnlatex_city_str }
+  \setvmeta { country } { \l_rvnlatex_country_str }
+  \setvmeta { subtitle } { \l_rvnlatex_subtitle_tl }
+  \setvmeta { author } { \l_rvnlatex_author_clist }
+  \setvmeta { advisors } { \l_rvnlatex_advisors_clist }
+  \setvmeta { location } { \l_rvnlatex_location_tl }
+  \setvmeta { date } { \l_rvnlatex_date_tl }
+  \group_end:
+}
