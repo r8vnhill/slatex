@@ -11,6 +11,17 @@
 \NewExpandableDocumentCommand { \getvmeta } { m } { \prop_item:Nn \g_rvnlatex_doc_prop {#1} }
 \NewDocumentCommand { \setvmeta } { m m } { \prop_gput:NnV \g_rvnlatex_doc_prop {#1} #2 }
 
+\DTMnewdatestyle {yymmddns} {
+  \RenewDocumentCommand { 
+    \DTMdisplaydate 
+  } { m m m m } { \DTMtwodigits{##1}\DTMtwodigits{##2}\DTMtwodigits{##3} }
+
+  \RenewDocumentCommand { \DTMDisplaydate } { } { \DTMdisplaydate }
+}
+\DTMnewtimestyle {hhmmns} {
+  \RenewDocumentCommand {\DTMdisplaytime}{mmm}{\DTMtwodigits{##1}\DTMtwodigits{##2}}
+}
+
 % region : TEMPLATE METADATA -----------------------------------------------------------------------
 % | Dictionary containing the metadata of the document.
 \keys_define:nn { ravenhill/latex/meta } {
@@ -24,6 +35,17 @@
   advisors .clist_set:N = \l_rvnlatex_advisors_clist ,
   location .tl_set:N = \l_rvnlatex_location_tl ,
   date .tl_set:N = \l_rvnlatex_date_tl ,
+  version .int_set:N = \l_rvnlatex_version_int ,
+  build .int_set:N = \l_rvnlatex_build_int ,
+  commit .tl_set:N = \l_rvnlatex_commit_int ,
+}
+
+
+\keys_set:nn { ravenhill/latex/meta } {
+  commit = 
+    \DTMsetdatestyle { yymmddns }\DTMsettimestyle { hhmmns }
+      \today\DTMcurrenttime\DTMsetstyle { default } 
+    \DTMsettimestyle { default }
 }
 
 % | Creates variables for the document's metadata.
@@ -41,5 +63,8 @@
   \setvmeta { advisors } { \l_rvnlatex_advisors_clist }
   \setvmeta { location } { \l_rvnlatex_location_tl }
   \setvmeta { date } { \l_rvnlatex_date_tl }
+  \setvmeta { version } { \l_rvnlatex_version_int }
+  \setvmeta { build } { \l_rvnlatex_build_int }
+  \setvmeta { commit } { \l_rvnlatex_commit_int }
   \group_end:
 }

@@ -40,6 +40,12 @@
   }                                                                   
 }
 
+\NewDocumentCommand { \fullversion } { } { 
+  v \getvmeta { version }.
+  \getvmeta { build }.
+  \getvmeta { commit }
+}
+
 \NewDocumentCommand { \location } { } {
   \getvmeta { location }
 }
