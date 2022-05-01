@@ -1,0 +1,116 @@
+%% "Makarena" (c) by Ignacio Slater M.
+%% "Makarena" is licensed under a
+%% Creative Commons Attribution 4.0 International License.
+%% You should have received a copy of the license along with this
+%% work. If not, see <https://creativecommons.org/licenses/by/4.0/>.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES USED BY THIS TEMPLATE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% | GEOMETRY – Flexible and complete interface to document dimensions
+% |   The package provides an easy and flexible user interface to customize page layout, 
+% |   implementing auto-centering and auto-balancing mechanisms so that the users have only to give 
+% |   the least description for the page layout. 
+% |   For example, if you want to set each margin 2cm without header space, what you need is just 
+% |   \usepackage[margin=2cm,nohead]{geometry}.
+% |   
+% |   The package knows about all the standard paper sizes, so that the user need not know what the 
+% |   nominal ‘real’ dimensions of the paper are, just its standard name (such as a4, letter, etc.).
+% |   
+% |   An important feature is the package’s ability to communicate the paper size it’s set up to the 
+% |   output (whether via DVI \specials or via direct interaction with pdf(LA)TEX).
+% --------------------------------------------------------------------------------------------------
+% | BIBLATEX – Sophisticated Bibliographies in LATEX
+% |   BibLATEX is a complete reimplementation of the bibliographic facilities provided by LATEX. 
+% |   Formatting of the bibliography is entirely controlled by LATEX macros, and a working knowledge 
+% |   of LATEX should be sufficient to design new bibliography and citation styles. 
+% |   BibLATEX uses its own data backend program called “biber” to read and process the bibliographic 
+% |   data. 
+% |   With biber, BibLATEX has many features rivalling or surpassing other bibliography systems. 
+% |   To mention a few:
+% |     * Full Unicode support
+% |     * Highly customisable sorting using the Unicode Collation Algorithm + CLDR tailoring
+% |     * Highly customisable bibliography labels
+% |     * Complex macro-based on-the-fly data modification without changing your data sources
+% |     * A tool mode for transforming bibliographic data sources
+% |     * Multiple bibliographies and lists of bibliographic information in the same document with 
+% |       different sorting
+% |     * Highly customisable data source inheritance rules
+% |     * Polyglossia and babel suppport for automatic language switching for bibliographic entries 
+% |       and citations
+% |     * Automatic bibliography data recoding (UTF-8 -> latin1, LATEX macros -> UTF-8 etc)
+% |     * Remote data sources
+% |     * Highly sophisticated automatic name and name list disambiguation system
+% |     * Highly customisable data model so users can define their own bibliographic data types
+% |     * Validation of bibliographic data against a data model
+% |     * Subdivided and/or filtered bibligraphies, bibliographies per chapter, section etc.
+% |   Apart from the features unique to BibLATEX, the package also incorporates core features of the 
+% |   following packages: babelbib, bibtopic, bibunits, chapterbib, cite, inlinebib, mcite and 
+% |   mciteplus, mlbib, multibib, splitbib.
+% |   The package strictly requires
+% |     * e-TEX
+% |     * BibTEX, bibtex8, or Biber
+% |     * etoolbox 2.1 or later
+% |     * logreq 1.0 or later
+% |     * keyval
+% |     * ifthen
+% |     * url
+% |     * Biber, babel / polyglossia, and csquotes 4.4 or later are strongly recommended.
+% --------------------------------------------------------------------------------------------------
+% | BABEL – Multilingual support for LATEX, LuaLATEX, XELATEX, and Plain TEX
+% |   This package manages culturally-determined typographical (and other) rules for a wide range of 
+% |   languages. 
+% |   A document may select a single language to be supported, or it may select several, in which 
+% |   case the document may switch from one language to another in a variety of ways.
+% |   
+% |   Babel uses contributed configuration files that provide the detail of what has to be done for 
+% |   each language. 
+% |   Included is also a set of ini files for about 250 languages.
+% |   
+% |   Many language styles work with pdfLATEX, as well as with XELATEX and LuaLATEX, out of the box. 
+% |   A few even work with plain formats. 
+% --------------------------------------------------------------------------------------------------
+% | AMSMATH – AMS mathematical facilities for LATEX
+% |   The principal package in the AMS-LATEX distribution. 
+% |   It adapts for use in LATEX most of the mathematical features found in AMS-TEX; it is highly 
+% |   recommended as an adjunct to serious mathematical typesetting in LATEX.
+% |   
+% |   When amsmath is loaded, AMS-LATEX packages amsbsy (for bold symbols), amsopn (for operator 
+% |   names) and amstext (for text embedded in mathematics) are also loaded.
+% |   
+% |   amsmath is part of the LATEX required distribution; however, several contributed packages add 
+% |   still further to its appeal; examples are empheq, which provides functions for decorating and 
+% |   highlighting mathematics, and ntheorem, for specifying theorem (and similar) definitions.
+% --------------------------------------------------------------------------------------------------
+% | FONTSPEC
+% --------------------------------------------------------------------------------------------------
+% | IMPORT
+% --------------------------------------------------------------------------------------------------
+% | GRAPHICX
+% | The package builds upon the graphics package, providing a key-value interface for optional 
+% | arguments to the \includegraphics command. 
+% | This interface provides facilities that go far beyond what the graphics package offers on its 
+% | own.
+% --------------------------------------------------------------------------------------------------
+% | URL
+% --------------------------------------------------------------------------------------------------
+% | XPARSE
+% | The package provides a high-level interface for producing document-level commands. 
+% | In that way, it offers a replacement for LATEX2ε’s \newcommand macro, with significantly 
+% | improved functionality.
+\usepackage[backend=biber, sorting=ynt]{biblatex}
+\usepackage[letterpaper, margin=2cm,includefoot,footskip=30pt]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cleveref}
+\usepackage{csquotes}
+\usepackage{expl3}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{keyval}
+\usepackage{minted}
+\usepackage{tabulary}
+\usepackage{url}
+\usepackage{xparse}
+\usepackage{minted}
+\usepackage{blindtext}
