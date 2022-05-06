@@ -68,3 +68,8 @@
   \setvmeta { commit } { \l_rvnlatex_commit_int }
   \group_end:
 }
+
+% | Set a custom name for the abstract.
+\NewDocumentCommand { \setabstractname } { m } {
+  \renewcommand { \abstractname } { #1 }
+}
