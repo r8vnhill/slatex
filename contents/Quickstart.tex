@@ -39,3 +39,72 @@
     Next we have the \textit{imports}, if you're not interested in learning \LaTeX~and just want to
     use this template, you can ignore this part.
     I'll explain the specifics later on this document.
+
+    Now let's get with the \texttt{setup}.
+    The command is very flexible and should be used according to what you need, for example, you can
+    set a subtitle in the \texttt{setup}, but if you don't plan to include a subtitle then you can 
+    omit it.
+    The syntax of the command is as follows:
+    \begin{minted}{tex}
+      \setup { 
+        key1 = value1,
+        key2 = {value 2}
+      }
+    \end{minted}
+    where \texttt{keyn} is the name of a key (for example \texttt{title}), and \texttt{valuen} is the
+    value of the key.
+    Here, the braces \texttt{\{\}} are used to define a value that contains several words or a list
+    of values.
+
+    The available keys are:
+    \begin{itemize}
+      \item \texttt{title} - The title of the document.
+      \item \texttt{subtitle} - The subtitle of the document.
+      \item \texttt{author} - The author(s) of the document, you can specify multiple authors as a 
+        list like \texttt{\{Author 1, Author 2\}}.
+      \item \texttt{advisors} - This is meant to add other people involved in the document, such as 
+        advisors, collaborators, reviewers, etc.
+        The syntax is the same as for \texttt{author}.
+      \item \texttt{logo} - The path to the logo of the document, this can be an absolute or 
+        relative path (using a relative path is advised).
+        The logo can be any valid image file or a pdf document.
+      \item \texttt{location} - Where the document was written or published.
+      \item \texttt{date} - The date of the document.
+      \item \texttt{version} - The version of the document.
+      \item \texttt{build} - The build number of the document (the \enquote{part 2} of the version).
+      \item \texttt{commit} - The commit id of the document (the \enquote{part 3} of the version).
+    \end{itemize}
+
+    \textit{\textbf{Note:} The full version of the document will be defined as 
+    \texttt{<version>.<build>.<commit>}.}
+
+    As an example, this document was configured with the following setup:
+    \begin{minted}{tex}
+      \setup { 
+        title = {
+          A Heuristic Proof on the Non-Deterministic Behaviour of the \textit{Little Room}'s Printer
+        },
+        subtitle = { Thesis Proposal for the degree of Ph.D in Printer Sciences },
+        author = {
+          \textbf{DankMasterBlader} \\
+          \textit{Institute of Printer Sciences} \\
+          Letter Paper University of Applied Sciences
+        },
+        advisors = {
+          \textbf{Alf} \\
+          \textit{?¿??} \\
+          University of \texttt{[BLANK]}. Ph.D  \\
+          {\small\textit{Thesis Advisor}},
+          \textbf{Juan Carlos Bodoque} \\
+          \textit{Thirty-One Minutes} \\
+          {\small\textit{Reviewer}}
+        },
+        logo = {logos/Logo_de_Plut_n.png},
+        location = {Brooklyn, Japan},
+        date = \today,
+        % Please, I ask you for all that's precious in the world, always include a version for your 
+        % document.
+        version = 0,
+        build = 1,
+      }
+    \end{minted}

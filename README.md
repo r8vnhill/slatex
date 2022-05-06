@@ -1,21 +1,34 @@
 # Mi Template: LaTeX de Plutón
 
-## Using in Overleaf
+A flexible, lightweight and simple(ish) LATEX template (aimed mainly for academic documents).
+Because you wouldn't kill a fly with a missile, you don't need an over-complex template to write 
+your assignments.
 
-Clone the repository or download it as a zip
-![](https://i.imgur.com/9bDVDtw.png)
+## Introduction (or Why I Created this Template)
+This template was born because there's one big problem with LATEX: it's very difficult to start
+learning it.
+But the thing is, it's not because LATEX is overcomplicated, it's because there's little to no
+material to learn.
 
-If you cloned the repository, zip it
+This is an ambitious task, because I want you to be able to use this template as-is with minimal
+LATEX knowledge, but also give you the tools to learn it and to understand how this template is
+made.
+It doesn't matter if you're a beginner or an advanced LATEX user, this template is aimed at 
+everyone.
 
-In Overleaf, go to new project and select upload project
-![](https://i.imgur.com/jOAnGYc.png)
+## How to use
 
-Drag and drop the zip
+For usage instructions, please refer to the ``Documentation.pdf`` file included on this repository.
 
-Now, in the project go to Menu
-![](https://i.imgur.com/kAokhMz.png)
+## Want to help? It's easy!
 
-And then select XeLaTeX as the compiler
-![](https://i.imgur.com/gZAxy6p.png)
+You just have to create an issue if you have a question or feature request.
+This will help me a lot to prioritize between features.
 
-Congratulations! You can now use the template
+Trust me, Latex is not as bad as you think.
+
+
+## Stay tuned
+
+If you want to know before anyone when new features are added, you can join the 
+[Telegram channel](https://t.me/latexdepluton).
