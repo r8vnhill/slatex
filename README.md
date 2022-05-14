@@ -1,4 +1,4 @@
-# Mi Template: LaTeX de Plutón
+# Simple, Lightweight & Adaptable TEX
 
 A flexible, lightweight and simple(ish) LATEX template (aimed mainly for academic documents).
 Because you wouldn't kill a fly with a missile, you don't need an over-complex template to write 
