@@ -18,3 +18,11 @@
   \clearpage
   \IfNoValueTF {#1} { \pagenumbering {arabic} } { \pagenumbering {#1} }
 }
+
+% | Trims leading and trailing whitespace from the given string.
+% | Arguments:
+% |   #1: Token List
+% |       The string to trim.
+\NewDocumentCommand { \normalize } { m } {
+  \tl_trim_spaces:N #1
+}
