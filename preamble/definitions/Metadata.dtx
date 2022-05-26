@@ -22,7 +22,7 @@
   \RenewDocumentCommand {\DTMdisplaytime}{mmm}{\DTMtwodigits{##1}\DTMtwodigits{##2}}
 }
 
-% region : TEMPLATE METADATA -----------------------------------------------------------------------
+% region : TEMPLATE SETUP --------------------------------------------------------------------------
 % | Dictionary containing the metadata of the document.
 \keys_define:nn { ravenhill/latex/meta } {
   title .tl_set:N = \l_rvnlatex_title_str ,
@@ -69,7 +69,28 @@
   \group_end:
 }
 
+% endregion
+
 % | Set a custom name for the abstract.
 \NewDocumentCommand { \setabstractname } { m } {
   \renewcommand { \abstractname } { #1 }
+}
+
+% | Prints the attribution notice
+\NewDocumentCommand { \attributionnotice } { } {
+  This~work,~``\getvmeta{title}'',~is~a~derivative~of~``\LaTeX\ de~Plutón''~by~Ignacio~Slater~M.,
+  ~used~under~\href{https://creativecommons.org/licenses/by/4.0/}{CC~BY~4.0}.
+}
+
+% | Creates a page to give attribution to the original author(s).
+\NewDocumentCommand { \attributionpage } { } { 
+  \pagebreak
+  \hspace{0pt}
+  \vfill
+  \begin{center}
+    \attributionnotice
+  \end{center}
+  \vfill
+  \hspace{0pt}
+  \pagebreak
 }
