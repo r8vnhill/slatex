@@ -1,5 +1,10 @@
 # Simple, Lightweight & Adaptable TEX
 
+![http://creativecommons.org/licenses/by/4.0/](https://i.creativecommons.org/l/by/4.0/88x31.png)
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)
+
 A flexible, lightweight and simple(ish) LATEX template (aimed mainly for academic documents).
 Because you wouldn't kill a fly with a missile, you don't need an over-complex template to write 
 your assignments.
