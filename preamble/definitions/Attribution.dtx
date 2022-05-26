@@ -1,0 +1,22 @@
+\tl_new:N \l__title_tl  % Auxiliary token list for the title of the document
+
+% | Prints the attribution notice
+\NewDocumentCommand { \attributionnotice } { } {
+  \tl_set:Nx \l__title_tl { \getvmeta { title } }
+  This~work,~``\trimspaces\l__title_tl'',~is~a~derivative~of~``\LaTeX\ de~Plutón''~by~
+  Ignacio~Slater~M.,~used~under~\href{https://creativecommons.org/licenses/by/4.0/}{CC~BY~4.0}.
+}
+
+% | Creates a page to give attribution to the original author(s).
+\NewDocumentCommand { \attributionpage } { } { 
+  \pagebreak
+  \hspace{0pt}
+  
+  \vfill
+  \begin{center}
+    \attributionnotice
+  \end{center}
+  \vfill
+  \hspace{0pt}
+  \pagebreak
+}

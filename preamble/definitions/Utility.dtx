@@ -23,6 +23,9 @@
 % | Arguments:
 % |   #1: Token List
 % |       The string to trim.
-\NewDocumentCommand { \normalize } { m } {
-  \tl_trim_spaces:N #1
+\DeclareExpandableDocumentCommand{\trimspaces}{m}{
+  \tl_trim_spaces:V #1
 }
+
+% | Auxiliary function for \trimspaces.
+\cs_generate_variant:Nn \tl_trim_spaces:n { V }
