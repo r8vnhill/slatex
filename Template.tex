@@ -1,11 +1,11 @@
-%% "LaTeX de Plutón" (c) by Ignacio Slater M.
-%% "LaTeX de Plutón" is licensed under a
+%% "Simple, Lightweight, and Adaptive TeX" (c) by R8V.
+%% "Simple, Lightweight, and Adaptive TeX" is licensed under a
 %% Creative Commons Attribution 4.0 International License.
 %% You should have received a copy of the license along with this
 %% work. If not, see <https://creativecommons.org/licenses/by/4.0/>.
 \documentclass{article}
   \usepackage{import} % This will make our life easier
-  \import{preamble}{Packages}
+  \import{preamble/Packages}{_packages.index.tex}
   \import{preamble}{Definitions}
   \import{preamble}{config}
 
@@ -13,18 +13,19 @@
     title = {Simple, Lightweight, and Adaptive \TeX},
     subtitle = {A template for \LaTeX},
     author = {
-      \textbf{DankMasterBlader} \\
-      \textit{Institute of Printer Sciences} \\
-      Letter Paper University of Applied Sciences
+      \textbf{Roäc Ravenhill} \\
+      \textit{Ravenhill<CL} \\
+      \href{mailto:reachme@ravemhill.cl}{reachme@ravemhill.cl} \\
     },
     advisors = {
-      \textbf{Alf} \\
-      \textit{?¿??} \\
-      University of \texttt{[BLANK]}. Ph.D  \\
-      {\small\textit{Thesis Advisor}},
-      \textbf{Juan Carlos Bodoque} \\
-      \textit{Thirty-One Minutes} \\
-      {\small\textit{Reviewer}}
+      \textbf{Advisor 1} \\
+      \textit{Extra attribution 1} \\
+      Extra attribution 2  \\
+      {\small\textit{Role}},
+      \textbf{Advisor 2} \\
+      \textit{Extra attribution 1} \\
+      Extra attribution 2  \\
+      {\small\textit{Role}},
     },
     logo = {logos/Logo_de_Plut_n.png},
     location = {Brooklyn, Japan},
@@ -32,7 +33,8 @@
     % Please, I ask you for all that's precious in the world, always include a version for your 
     % document.
     version = 0,
-    build = 2,
+    build = 4,
+    commit = 2306.1
   }
 
 \begin{document}
@@ -57,7 +59,7 @@
   \newpage
   \tableofcontents
   \newpage
-  
+
   \Blinddocument
 
   \printbibliography

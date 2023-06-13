@@ -1,16 +1,22 @@
-%% "LaTeX de Plutón" (c) by Ignacio Slater M.
-%% "LaTeX de Plutón" is licensed under a
+%% "Simple, Lightweight, and Adaptive TeX" (c) by R8V.
+%% "Simple, Lightweight, and Adaptive TeX" is licensed under a
 %% Creative Commons Attribution 4.0 International License.
 %% You should have received a copy of the license along with this
 %% work. If not, see <https://creativecommons.org/licenses/by/4.0/>.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT'S METADATA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% | \getvmeta
 % | Generic getter for the document variables.
 \NewExpandableDocumentCommand { \getvmeta } { m } { \prop_item:Nn \g_rvnlatex_doc_prop {#1} }
+
+% | \setvmeta
+% | Generic setter for the document variables.
 \NewDocumentCommand { \setvmeta } { m m } { \prop_gput:NnV \g_rvnlatex_doc_prop {#1} #2 }
 
+% region : DATETIME SETUP --------------------------------------------------------------------------
 \DTMnewdatestyle {yymmddns} {
   \RenewDocumentCommand { 
     \DTMdisplaydate 
@@ -21,6 +27,7 @@
 \DTMnewtimestyle {hhmmns} {
   \RenewDocumentCommand {\DTMdisplaytime}{mmm}{\DTMtwodigits{##1}\DTMtwodigits{##2}}
 }
+% endregion ----------------------------------------------------------------------------------------
 
 % region : TEMPLATE SETUP --------------------------------------------------------------------------
 % | Dictionary containing the metadata of the document.
@@ -71,6 +78,7 @@
 
 % endregion
 
+% | \setabstractname
 % | Set a custom name for the abstract.
 \NewDocumentCommand { \setabstractname } { m } {
   \renewcommand { \abstractname } { #1 }

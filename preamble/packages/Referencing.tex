@@ -1,0 +1,23 @@
+% | varioref, hyperref, cleveref - Enhanced cross-referencing in LaTeX
+% |
+% | These three packages are used together to provide enhanced cross-referencing capabilities in LaTeX.
+% | The 'hyperref' package is used to handle links within the document. 
+% | The 'varioref' package provides commands for flexible cross-references.
+% | The 'cleveref' package enhances LaTeX's cross-referencing features, allowing the format of references 
+% | to be determined automatically according to the type of reference.
+% |
+% | When used together, they should be loaded in the order: hyperref, varioref, cleveref. 
+% | This is because 'hyperref' redefines many LaTeX commands and should be loaded last to avoid conflicts. 
+% | However, 'cleveref' has to be loaded after 'hyperref' as it further modifies some of 'hyperref's commands. 
+% | 'varioref' should be loaded before both to avoid any compatibility issues.
+% |
+% | Importantly, these packages when used together, enhance LaTeX's default referencing system, 
+% | allowing for the creation of hyperlinks, flexible referencing and intelligent reference format detection.
+% |
+% | Parameters: 
+% | None, these packages are imported without options in this example. 
+% | However, options may be specified depending on the requirements.
+% |
+% | Note: 
+% | Pay attention to the order of importing these packages, the recommended order is: varioref, hyperref, cleveref.
+\usepackage{varioref, hyperref, cleveref}
